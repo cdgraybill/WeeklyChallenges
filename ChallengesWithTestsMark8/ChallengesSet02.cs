@@ -7,22 +7,22 @@ namespace ChallengesWithTestsMark8
     {
         public bool CharacterIsALetter(char c)
         {
-            throw new NotImplementedException();
+            return Char.IsLetter(c) ? true : false;
         }
 
         public bool CountOfElementsIsEven(string[] vals)
         {
-            throw new NotImplementedException();
+            return vals.Length % 2 == 0 ? true : false;
         }
 
         public bool IsNumberEven(int number)
         {
-            throw new NotImplementedException();
+            return number % 2 == 0 ? true : false;
         }
 
         public bool IsNumberOdd(int num)
         {
-            throw new NotImplementedException();
+            return num % 2 != 0 ? true : false;
         }
 
         public double SumOfMinAndMax(IEnumerable<double> numbers)
@@ -32,22 +32,41 @@ namespace ChallengesWithTestsMark8
 
         public int GetLengthOfShortestString(string str1, string str2)
         {
-            throw new NotImplementedException();
+            return str1.Length > str2.Length ? str2.Length : str1.Length;
         }
 
         public int Sum(int[] numbers)
         {
-            throw new NotImplementedException();
+            int sum = 0;
+
+            foreach (int number in numbers)
+            {
+                sum += number;
+            }
+            return sum;
         }
 
         public int SumEvens(int[] numbers)
         {
-            throw new NotImplementedException();
+            int sum = 0;
+
+            for (int i = 2; i < numbers.Length; i += 2)
+            {
+                sum += numbers[i];
+            }
+            return sum;
         }
 
         public bool IsSumOdd(List<int> numbers)
         {
-            throw new NotImplementedException();
+            int sum = 0;
+
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                sum += i;
+            }
+
+            return sum % 2 != 0 ? true : false;
         }
 
         public long CountOfPositiveOddsBelowNumber(long number)
