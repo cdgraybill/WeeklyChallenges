@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ChallengesWithTestsMark8
 {
@@ -7,27 +8,31 @@ namespace ChallengesWithTestsMark8
     {
         public bool CharacterIsALetter(char c)
         {
-            return Char.IsLetter(c) ? true : false;
+            return char.IsLetter(c);
         }
 
         public bool CountOfElementsIsEven(string[] vals)
         {
-            return vals.Length % 2 == 0 ? true : false;
+            return vals.Length % 2 == 0;
         }
 
         public bool IsNumberEven(int number)
         {
-            return number % 2 == 0 ? true : false;
+            return number % 2 == 0;
         }
 
         public bool IsNumberOdd(int num)
         {
-            return num % 2 != 0 ? true : false;
+            return num % 2 != 0;
         }
 
         public double SumOfMinAndMax(IEnumerable<double> numbers)
         {
-            throw new NotImplementedException();
+            if(numbers == null || numbers.Count() == 0)
+            {
+                return 0;
+            }
+            return numbers.Max() + numbers.Min();
         }
 
         public int GetLengthOfShortestString(string str1, string str2)
@@ -38,6 +43,11 @@ namespace ChallengesWithTestsMark8
         public int Sum(int[] numbers)
         {
             int sum = 0;
+            
+            if (numbers == null)
+            {
+                return 0;
+            }
 
             foreach (int number in numbers)
             {
@@ -50,10 +60,19 @@ namespace ChallengesWithTestsMark8
         {
             int sum = 0;
 
-            for (int i = 2; i < numbers.Length; i += 2)
+            if (numbers == null)
             {
-                sum += numbers[i];
+                return 0;
             }
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                if (numbers[i]%2 == 0)
+                {
+                    sum += numbers[i];
+                }
+            }
+
             return sum;
         }
 
@@ -61,17 +80,29 @@ namespace ChallengesWithTestsMark8
         {
             int sum = 0;
 
-            for (int i = 0; i < numbers.Count; i++)
+            if(numbers == null)
             {
-                sum += i;
+                return false;
             }
 
-            return sum % 2 != 0 ? true : false;
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                sum += numbers[i];
+            }
+
+            return sum % 2 != 0;
         }
 
         public long CountOfPositiveOddsBelowNumber(long number)
         {
-            throw new NotImplementedException();
+            if (number < 1)
+                return 0;
+
+            if (number%2 == 0)
+            {
+                return number / 2;
+            }
+            return (long)Math.Floor(number / 2d);
         }
     }
 }
